@@ -37,10 +37,23 @@ Route::get('/post/{slug}', function($slug) {
 
 Route::get('/profile', function() {
   return view('profile', [
-    'title' => 'Profile',
-    'username' => '@ghifarit53',
-    'name' => 'Muhammad Ghifari Taqiuddin',
-    'age' => 19,
-    'email' => 'mghifarit53@gmail.com',
- ]);
+      'author' => 'shintaeyong',
+      'title' => 'Profile',
+      'posts' => Post::all(),
+  ]);
+
+
+});
+
+
+Route::get('/profile/change', function() {
+    return view('profilechange', [
+        'title' => 'Profile',
+        'username' => '@ghifarit53',
+        'name' => 'Muhammad Ghifari Taqiuddin',
+        'age' => 19,
+        'email' => 'mghifarit53@gmail.com',
+    ]);
+
+
 });
