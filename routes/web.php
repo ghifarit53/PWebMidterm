@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,47 +15,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function() {
-  $posts = [
-    [
-      "text" => "Rek info menu buka di manarul hari ini dong",
-      "date" => "Sun, 2 Apr",
-      "time" => "13.45",
-      "author" => "shintaeyong",
-      "image" => Null
-    ],
-    [
-      "text" => "Semangat ETS ayang 5005******",
-      "date" => "Sun, 2 Apr",
-      "time" => "10.44",
-      "author" => "flappybird",
-      "image" => Null,
-    ],
-    [
-      "text" => "Rek gerbang asrama buka ga ya sekarang??",
-      "date" => "Sun, 2 Apr",
-      "time" => "08.45",
-      "author" => "__xxoyou33",
-      "image" => Null,
-    ],
-    [
-      "text" => "WTS tiket Suzume di xxi sore ini bgt, sender pulkam soalnya",
-      "date" => "Sun, 2 Apr",
-      "time" => "06.45",
-      "author" => "weebu1945",
-      "image" => Null,
-    ],
-  ];
-
   return view('home', [
     'title' => 'Home',
-    'posts' => $posts,
+    'posts' => Post::all(),
   ]);
 });
 
+Route::get('/newpost', function() {
+  return view('newpost', [
+    'title' => 'New Post',
+  ]);
+});
 
-Route::get('/post', function() {
+Route::get('/post/{slug}', function($slug) {
+  $post = Post::find($slug);
   return view('post', [
-    'title' => 'Post',
+    'title' => $post['text'],
+    'post' => $post,
   ]);
 });
 
