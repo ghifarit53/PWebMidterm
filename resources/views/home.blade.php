@@ -6,8 +6,8 @@
   </h1>
 
   @foreach ($posts as $post)
-    <div class="bg-gray-100 my-8 p-6 rounded-2xl">
-      <p class="text-gray-600 text-sm mb-2">&#64;{{ $post["author"] }} on {{ $post["date"] }} at {{ $post["time"] }}</p>
+    <div class="bg-gray-100 mt-8 p-6 max-w-3x rounded-2xl">
+      <p class="text-gray-600 text-sm mb-2">&#64;{{ $post["user"] }} on {{ $post["date"] }} at {{ $post["time"] }}</p>
       <a href="/post/{{ $post["slug"] }}">
         <h2 class="text-xl font-medium mb-6">{{ $post["text"]}}</h2>
       </a>
@@ -29,4 +29,6 @@
       </div>
     </div>
   @endforeach
+
+
 @endsection

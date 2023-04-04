@@ -22,8 +22,8 @@
                                 <h3 class="text-lg leading-6 font-medium text-gray-900">Profile information</h3>
                                 <div class="mt-2 max-w-xl text-sm text-gray-500">
                                     <div class="mb-4">
-                                        <label class="block text-gray-700 font-bold mb-2" for="name">
-                                            Name
+                                        <label class="block text-gray-700 font-bold mb-2" for="username">
+                                            Username
                                         </label>
                                         <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" name="name" type="text" placeholder="John Doe" value="John Doe">
                                     </div>

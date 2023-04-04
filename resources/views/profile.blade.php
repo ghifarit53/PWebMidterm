@@ -23,7 +23,7 @@
     <div class="flex-col">
         @foreach ($posts as $post)
             <div class="bg-gray-100 my-8 p-6 rounded-2xl max-w-4xl">
-                <p class="text-gray-600 text-sm mb-2">&#64;{{ $post["author"] }} on {{ $post["date"] }} at {{ $post["time"] }}</p>
+                <p class="text-gray-600 text-sm mb-2">&#64;{{ $post["user"] }} on {{ $post["date"] }} at {{ $post["time"] }}</p>
                 <a href="/post/{{ $post["slug"] }}">
                     <h2 class="text-xl font-medium mb-6">{{ $post["text"]}}</h2>
                 </a>

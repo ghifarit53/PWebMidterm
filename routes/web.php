@@ -31,6 +31,7 @@ Route::get('/post/{slug}', function($slug) {
   $post = Post::find($slug);
   return view('post', [
     'title' => $post['text'],
+    'user' => $post['user'],
     'post' => $post,
   ]);
 });
@@ -56,4 +57,29 @@ Route::get('/profile/change', function() {
     ]);
 
 
+
+});
+
+Route::get('/signup', function() {
+    return view('signuppage', [
+        'title' => 'signup',
+
+    ]);
+
+});
+
+
+Route::get('/login', function() {
+    return view('loginpage', [
+        'title' => 'login',
+
+    ]);
+
+});
+
+Route::get('/user/{slug}', function($slug) {
+  return view('user', [
+    'title' => 'Profile | ' . $slug,
+    'username' => $slug,
+  ]);
 });
