@@ -65,6 +65,13 @@ Route::get('/signup', function() {
 
     ]);
 
+});
 
+
+Route::get('/login', function() {
+    return view('loginpage', [
+        'title' => 'login',
+
+    ]);
 
 });
