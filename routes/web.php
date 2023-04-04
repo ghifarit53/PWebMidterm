@@ -80,6 +80,6 @@ Route::get('/login', function() {
 Route::get('/user/{slug}', function($slug) {
   return view('user', [
     'title' => 'Profile | ' . $slug,
-    'username' => $slug,
+    'user' => $slug,
   ]);
 });

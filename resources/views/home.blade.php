@@ -7,9 +7,10 @@
 
   @foreach ($posts as $post)
     <div class="bg-gray-100 mt-8 p-6 max-w-3x rounded-2xl">
-      <p class="text-gray-600 text-sm mb-2">&#64;{{ $post["user"] }} on {{ $post["date"] }} at {{ $post["time"] }}</p>
-      <a href="/post/{{ $post["slug"] }}">
-        <h2 class="text-xl font-medium mb-6">{{ $post["text"]}}</h2>
+        <a href="/user/{{$post["user"]}} " class ="text-its-blue font-bold ">{{ $post["user"] }}</a>
+        <span class="text-gray-400"> on {{ $post["date"] }} at {{ $post["time"] }}</span>
+        <a href="/post/{{ $post["slug"] }}">
+        <h2 class="text-xl font-medium mb-6 mt-2">{{ $post["text"]}}</h2>
       </a>
       <div class="flex space-x-4 items-center">
         <div class="flex space-x-1 items-center">
