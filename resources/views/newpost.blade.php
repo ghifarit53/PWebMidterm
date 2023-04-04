@@ -11,11 +11,11 @@
               <textarea
                   class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   id="body"
-                  placeholder="Write your post here (maximum 500 characters)"
-                  maxlength="500"
+                  placeholder="Write your post here (maximum 150 characters)"
+                  maxlength="150"
               ></textarea>
               <p class="text-gray-500 text-sm mt-2">
-                  <span id="charCount">0</span>/500 characters
+                  <span id="charCount">0</span>/150 characters
               </p>
           </div>
           <div class="flex justify-start">
