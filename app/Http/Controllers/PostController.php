@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use DateTime;
 use Illuminate\Support\Facades\DB;
 
@@ -88,8 +88,29 @@ class PostController extends Controller
 
     public function destroy(Request $request)
     {
-        Post::destroy($request['post_id']);
+        $post_id = $request['post_id'];
+        Post::destroy($post_id);
+        Comment::where('post_id', $post_id)->delete();
         return redirect('/')->with('deletePostSuccess', "Post deleted");
+    }
+
+    public function edit(Request $request)
+    {
+        $post = Post::findOrFail($request['post_id']);
+
+        return view('editpost', [
+            "title" => "Edit Post",
+            "post" => $post,
+        ]);
+    }
+
+    public function save_edit(Request $request)
+    {
+        $post = Post::findOrFail($request['post_id']);
+        $post->text = $request['text'];
+        $post->save();
+
+        return redirect('/post/' . $post->slug);
     }
 }
 ?>

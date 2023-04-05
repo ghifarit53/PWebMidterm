@@ -14,6 +14,7 @@
         <h1 class="mt-4 text-3xl font-bold">{{ $post->text }}</h1>
 
         @auth
+        @if (auth()->user()->id == $post->user_id)
         <div class="flex items-center mt-4 space-x-4">
             <form action="/deletepost" method="POST">
                 @csrf
@@ -23,13 +24,15 @@
                 </button>    
             </form>
 
-            <form action="">
+            <form action="/editpost" method="POST">
                 @csrf
+                <input type="hidden" name="post_id" value="{{ $post->id }}">
                 <button>
                     <span class="material-icons" style="font-size:20px">create</span>
                 </button>
             </form>
         </div>
+        @endif
         @endauth
 
         @auth
@@ -58,8 +61,9 @@
         @endauth
     </div>
 
-    <h2 class="text-2xl font-bold my-4">Comments</h2>
 
+    @if (count($post->comments) > 0)
+    <h2 class="text-2xl font-bold my-4">Comments</h2>
     @foreach ($post->comments as $comment)
         <div class="bg-gray-100 p-7 rounded-2xl my-4 max-w-4xl">
             <a href="/profile/{{ $comment->user->username }}" class="text-its-blue font-bold">{{ $comment->user->username }}</a>
@@ -67,4 +71,5 @@
             <p class="mt-2">{{ $comment->text }}</p>
         </div>
     @endforeach
+    @endif
 @endsection
