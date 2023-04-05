@@ -85,5 +85,11 @@ class PostController extends Controller
 
         return redirect('/');
     }
+
+    public function destroy(Request $request)
+    {
+        Post::destroy($request['post_id']);
+        return redirect('/')->with('deletePostSuccess', "Post deleted");
+    }
 }
 ?>

@@ -14,6 +14,25 @@
         <h1 class="mt-4 text-3xl font-bold">{{ $post->text }}</h1>
 
         @auth
+        <div class="flex items-center mt-4 space-x-4">
+            <form action="/deletepost" method="POST">
+                @csrf
+                <input type="hidden" name="post_id" value="{{ $post->id }}">
+                <button type="submit" onclick="return confirm('Are you sure you want to delete this post?')">
+                    <span class="material-icons" style="font-size:20px">delete</span>
+                </button>    
+            </form>
+
+            <form action="">
+                @csrf
+                <button>
+                    <span class="material-icons" style="font-size:20px">create</span>
+                </button>
+            </form>
+        </div>
+        @endauth
+
+        @auth
             <div class="bg-gray-100 pt-6 rounded-2xl mt-2">
                 <form action="/addcomment" method="POST">
                     @csrf
@@ -35,7 +54,7 @@
                 </script>
             </div>
         @else
-            <p class="mt-10"><a href="/login" class="text-its-blue">Log in</a> to add comment</p>
+            <p class="mt-6"><a href="/login" class="text-its-blue">Log in</a> to add comment</p>
         @endauth
     </div>
 

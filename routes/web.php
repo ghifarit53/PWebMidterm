@@ -32,4 +32,5 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 Route::get('/newpost', [PostController::class, 'newpost'])->middleware('auth');
 Route::post('/newpost', [PostController::class, 'store'])->middleware('auth');
+Route::post('/deletepost', [PostController::class, 'destroy'])->middleware('auth');
 Route::post('/addcomment', [CommentController::class, 'store'])->middleware('auth');
