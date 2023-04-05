@@ -18,27 +18,16 @@ use App\Http\Controllers\SignupController;
 */
 
 Route::get('/', [PostController::class, 'index']);
+
 Route::get('/post/{post:slug}', [PostController::class, 'show']);
 Route::get('/profile/{user:username}', [ProfileController::class, 'index']);
 
-Route::get('/signup', [SignupController::class, 'index']);
-Route::post('/signup', [SignupController::class, 'store']);
+Route::get('/signup', [SignupController::class, 'index'])->middleware('guest');
+Route::post('/signup', [SignupController::class, 'store'])->middleware('guest');
 
-Route::get('/login', [LoginController::class, 'index']);
-Route::post('/login', [LoginController::class, 'authenticate']);
+Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
-Route::get('/newpost', function() {
-  return view('newpost', [
-    'title' => 'New Post',
-  ]);
-});
-
-// Route::get('/changeprofile', function() {
-//     return view('changeprofile', [
-//         'title' => 'Profile',
-//         'username' => '@ghifarit53',
-//         'name' => 'Muhammad Ghifari Taqiuddin',
-//         'age' => 19,
-//         'email' => 'mghifarit53@gmail.com',
-//     ]);
-// });
+Route::get('/newpost', [])->middleware('auth');
+Route::get('/changeprofile', [])->middleware('auth');

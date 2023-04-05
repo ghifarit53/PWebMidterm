@@ -2,13 +2,13 @@
 
 @section('container')
     @if(session()->has('success'))
-        <div class="bg-green-700 text-white p-6">
+        <div class="bg-green-700 text-white p-6 rounded-2xl">
             {{ session('success') }}
         </div>
     @endif
 
     @if(session()->has('loginError'))
-        <div class="bg-red-500 text-white p-6">
+        <div class="bg-red-500 text-white p-6 rounded-2xl">
             {{ session('loginError') }}
         </div>
     @endif
@@ -43,6 +43,9 @@
                     <button type="submit" class="mt-1 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-its-blue hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700" type="submit" >
                         Login
                     </button>
+                </div>
+                <div class="mt-2">
+                    <span>Haven't registered yet? </span><a href="/signup" class="text-blue-700">Sign up</a>
                 </div>
             </form>
         </div>
