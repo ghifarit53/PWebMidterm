@@ -9,7 +9,7 @@
     </div>
     <div>
         <h1 class="font-medium text-xm mt-2">
-            {{ $user->department }}
+            Department of {{ $user->department }}
         </h1>
     </div>
 

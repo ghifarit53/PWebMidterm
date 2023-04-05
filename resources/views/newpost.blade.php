@@ -24,7 +24,7 @@
             </p>
             </div>
             <div class="flex justify-start">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                <button class="bg-its-blue hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:ring-2 ring-its-blue ring-offset-2"
                     type="submit">Post</button>
             </div>
         </form>

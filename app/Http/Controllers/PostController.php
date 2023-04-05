@@ -73,12 +73,14 @@ class PostController extends Controller
             'text' => 'required|max:150',
         ]);
 
+        $time_now = now();
+
         DB::table('posts')->insert([
             'user_id' => auth()->user()->id,
             'text' => $validatedData['text'],
             'slug' => $this->slugify($validatedData['text']),
-            'created_at' => now(),
-            'updated_at' => now(),
+            'created_at' => $time_now,
+            'updated_at' => $time_now,
         ]);
 
         return redirect('/');

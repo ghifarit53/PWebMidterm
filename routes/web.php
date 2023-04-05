@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
@@ -31,4 +32,4 @@ Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
 Route::get('/newpost', [PostController::class, 'newpost'])->middleware('auth');
 Route::post('/newpost', [PostController::class, 'store'])->middleware('auth');
-Route::get('/changeprofile', [])->middleware('auth');
+Route::post('/addcomment', [CommentController::class, 'store'])->middleware('auth');

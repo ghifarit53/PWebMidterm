@@ -1,9 +1,9 @@
 @extends('layouts.main')
 
 @section('container')
-    @if(session()->has('success'))
+    @if(session()->has('signupSuccess'))
         <div class="bg-green-700 text-white p-6 rounded-2xl">
-            {{ session('success') }}
+            {{ session('signupSuccess') }}
         </div>
     @endif
 

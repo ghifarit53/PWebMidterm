@@ -27,6 +27,6 @@ class SignupController extends Controller
 
         User::create($validatedData);
 
-        return redirect('/login')->with('success', "Registration Success, please login to continue");
+        return redirect('/login')->with('signupSuccess', "Registration Success, please login to continue");
     }
 }
