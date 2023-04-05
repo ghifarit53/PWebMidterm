@@ -25,9 +25,10 @@ Route::get('/profile/{user:username}', [ProfileController::class, 'index']);
 Route::get('/signup', [SignupController::class, 'index'])->middleware('guest');
 Route::post('/signup', [SignupController::class, 'store'])->middleware('guest');
 
-Route::get('/login', [LoginController::class, 'index'])->middleware('guest');
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate'])->middleware('guest');
 Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth');
 
-Route::get('/newpost', [])->middleware('auth');
+Route::get('/newpost', [PostController::class, 'newpost'])->middleware('auth');
+Route::post('/newpost', [PostController::class, 'store'])->middleware('auth');
 Route::get('/changeprofile', [])->middleware('auth');
