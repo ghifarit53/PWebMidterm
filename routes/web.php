@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
@@ -14,12 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function() {
-  return view('home', [
-    'title' => 'Home',
-    'posts' => Post::all(),
-  ]);
-});
+Route::get('/', [PostController::class, 'index']);
 
 Route::get('/newpost', function() {
   return view('newpost', [
@@ -27,14 +23,7 @@ Route::get('/newpost', function() {
   ]);
 });
 
-Route::get('/post/{slug}', function($slug) {
-  $post = Post::find($slug);
-  return view('post', [
-    'title' => $post['text'],
-    'user' => $post['user'],
-    'post' => $post,
-  ]);
-});
+Route::get('/post/{post:slug}', [PostController::class, 'show']);
 
 Route::get('/profile', function() {
   return view('profile', [
@@ -42,8 +31,6 @@ Route::get('/profile', function() {
       'title' => 'Profile',
       'posts' => Post::all(),
   ]);
-
-
 });
 
 
@@ -55,9 +42,6 @@ Route::get('/profile/change', function() {
         'age' => 19,
         'email' => 'mghifarit53@gmail.com',
     ]);
-
-
-
 });
 
 Route::get('/signup', function() {
@@ -65,7 +49,6 @@ Route::get('/signup', function() {
         'title' => 'signup',
 
     ]);
-
 });
 
 
@@ -74,7 +57,6 @@ Route::get('/login', function() {
         'title' => 'login',
 
     ]);
-
 });
 
 Route::get('/user/{slug}', function($slug) {
