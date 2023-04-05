@@ -8,9 +8,11 @@ class PostController extends Controller
 {
     public function index()
     {
+        $posts = Post::with('user')->orderBy('created_at', 'desc')->get();
+
         return view('home', [
             "title" => "Home",
-            "posts" => Post::orderBy('created_at', 'desc')->get(),
+            "posts" => $posts
         ]);
     }
 

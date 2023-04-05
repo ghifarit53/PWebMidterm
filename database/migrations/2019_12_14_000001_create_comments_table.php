@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::dropIfExists('personal_access_tokens');
         
-        Schema::create('comment_post', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->string('comment');
+            $table->foreignId('post_id');
+            $table->string('text');
             $table->timestamps();
         });
     }

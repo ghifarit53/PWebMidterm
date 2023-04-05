@@ -46,9 +46,12 @@
         </script>
     </div>
 
-   {{-- <div class="bg-gray-100 p-7 rounded-2xl mt-2 max-w-xl">
-        <span class="text-its-blue font-bold">shintaeyon</span>
-        <span class="text-gray-400"> on {{ $post["date"] }} at {{ $post["time"] }}</span>
-        <p>Nasi padang nderrr buruann</p>
-    </div> --}}
+
+    @foreach ($post->comments as $comment)
+        <div class="bg-gray-100 p-7 rounded-2xl mt-2 max-w-xl">
+            <a href="/user/{{ $comment->user->username }}" class="text-its-blue font-bold">{{ $comment->user->username }}</a>
+            <span class="text-gray-400"> on {{ $comment->created_at->format('M d, Y') }} at {{ $comment->created_at->format('h:i A') }}</span>
+            <p class="mt-2">{{ $comment->text }}</p>
+        </div>
+    @endforeach
 @endsection
