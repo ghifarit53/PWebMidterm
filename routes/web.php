@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\PostController;
-use App\Models\Post;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SignupController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +18,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PostController::class, 'index']);
+Route::get('/post/{post:slug}', [PostController::class, 'show']);
+Route::get('/profile/{user:username}', [ProfileController::class, 'index']);
+
+Route::get('/signup', [SignupController::class, 'index']);
+Route::post('/signup', [SignupController::class, 'store']);
+
+Route::get('/login', [LoginController::class, 'index']);
+Route::post('/login', [LoginController::class, 'authenticate']);
 
 Route::get('/newpost', function() {
   return view('newpost', [
@@ -23,45 +33,12 @@ Route::get('/newpost', function() {
   ]);
 });
 
-Route::get('/post/{post:slug}', [PostController::class, 'show']);
-
-Route::get('/profile', function() {
-  return view('profile', [
-      'author' => 'shintaeyong',
-      'title' => 'Profile',
-      'posts' => Post::all(),
-  ]);
-});
-
-
-Route::get('/profile/change', function() {
-    return view('profilechange', [
-        'title' => 'Profile',
-        'username' => '@ghifarit53',
-        'name' => 'Muhammad Ghifari Taqiuddin',
-        'age' => 19,
-        'email' => 'mghifarit53@gmail.com',
-    ]);
-});
-
-Route::get('/signup', function() {
-    return view('signup', [
-        'title' => 'signup',
-
-    ]);
-});
-
-
-Route::get('/login', function() {
-    return view('login', [
-        'title' => 'login',
-
-    ]);
-});
-
-Route::get('/user/{slug}', function($slug) {
-  return view('user', [
-    'title' => 'Profile | ' . $slug,
-    'user' => $slug,
-  ]);
-});
+// Route::get('/changeprofile', function() {
+//     return view('changeprofile', [
+//         'title' => 'Profile',
+//         'username' => '@ghifarit53',
+//         'name' => 'Muhammad Ghifari Taqiuddin',
+//         'age' => 19,
+//         'email' => 'mghifarit53@gmail.com',
+//     ]);
+// });

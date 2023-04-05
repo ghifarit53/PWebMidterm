@@ -9,7 +9,7 @@
     </div>
 
     <div class="bg-gray-100 p-6 rounded-2xl mt-8"><p></p>
-      <a href="/user/{{ $post->user->username }}" class="font-bold text-its-blue">{{ $post->user->username }}</a>
+      <a href="/profile/{{ $post->user->username }}" class="font-bold text-its-blue">{{ $post->user->username }}</a>
       <span class="text-gray-400"> on {{ $post->created_at->format('M d, Y') }} at {{ $post->created_at->format('h:i A') }}</span>
       <h1 class="mt-4 text-3xl font-bold">{{ $post->text }}</h1>
 
@@ -54,7 +54,7 @@
 
     @foreach ($post->comments as $comment)
         <div class="bg-gray-100 p-7 rounded-2xl mt-2 max-w-xl">
-            <a href="/user/{{ $comment->user->username }}" class="text-its-blue font-bold">{{ $comment->user->username }}</a>
+            <a href="/profile/{{ $comment->user->username }}" class="text-its-blue font-bold">{{ $comment->user->username }}</a>
             <span class="text-gray-400"> on {{ $comment->created_at->format('M d, Y') }} at {{ $comment->created_at->format('h:i A') }}</span>
             <p class="mt-2">{{ $comment->text }}</p>
         </div>

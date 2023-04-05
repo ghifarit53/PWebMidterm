@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'username',
+        'department',
         'password',
     ];
 
@@ -29,6 +30,10 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
+    ];
+
+    protected $guarded = [
+        'id',
     ];
 
     public function comments()
