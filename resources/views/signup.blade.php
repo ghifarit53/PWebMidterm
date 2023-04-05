@@ -41,7 +41,7 @@
                         id="confirm-password" type="password" placeholder="Confirm Password">
                 </div>
                 <div class="flex items-center justify-between">
-                    <a href="/login" class="mt-1 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" type="submit" >
+                    <a href="/login" class="mt-1 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-its-blue hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-700" type="submit" >
                         Sign Up
                     </a>
                 </div>

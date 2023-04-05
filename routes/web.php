@@ -45,7 +45,7 @@ Route::get('/profile/change', function() {
 });
 
 Route::get('/signup', function() {
-    return view('signuppage', [
+    return view('signup', [
         'title' => 'signup',
 
     ]);
@@ -53,7 +53,7 @@ Route::get('/signup', function() {
 
 
 Route::get('/login', function() {
-    return view('loginpage', [
+    return view('login', [
         'title' => 'login',
 
     ]);
